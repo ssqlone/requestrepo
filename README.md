@@ -47,8 +47,10 @@ sudo systemctl restart systemd-resolved
 ```
 
 #### To maintain hostname resolution for internal tools, add your server to `/etc/hosts`:
+`sudo nano /etc/hosts`
 ```bash
-echo "127.0.0.1 server-hostname" | sudo tee -a /etc/hosts
+127.0.0.1 server-hostname
+external-ip server-hostname
 ```
 
 ---
@@ -70,7 +72,7 @@ Rename to dbip-country-lite-xxxx-xx.csv.gz to dbip-country-lite.csv.gz and paste
 #### Download latest docker-compose.yaml: 
 Download `docker-compose.yaml`:
 ```bash
-wget -O docker-compose.yaml https://raw.githubusercontent.com/adrgs/requestrepo/refs/heads/main/docker-compose-prod.yml
+wget -O docker-compose.yaml https://raw.githubusercontent.com/adrgs/requestrepo/refs/heads/main/docker-compose-prod.yaml
 ```
 #### Replace environment variables on `docker-compose.yaml` for backend and dns:
 ```yaml
