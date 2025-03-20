@@ -69,7 +69,7 @@ export const DnsSettingsPage = ({
   }, [activeSession?.subdomain]);
 
   const add = useCallback(
-    (domain = "", type = 0, value = "") => {
+    (domain = process.env.DOMAIN || "", type = 0, value = "") => {
       if (!activeSession?.token) {
         toast.error("No active session selected", Utils.toastOptions);
         return;
@@ -81,6 +81,7 @@ export const DnsSettingsPage = ({
     },
     [activeSession],
   );
+
 
   const handleRecordInputChange = useCallback(
     (index, domain, type, value, toDelete) => {
